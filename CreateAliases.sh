@@ -8,11 +8,12 @@
 # General commands
 alias c='clear'
 alias d='pwd'
+alias del='rm -rf'
+alias g='grep -irn'
 alias k='kill'
 alias k9='kill -9'
 alias l='ls -alh'
 alias p='ps -eaf'
-alias del='rm -rf'
 
 # Git
 alias gcl='git clone'
