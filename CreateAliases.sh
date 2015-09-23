@@ -23,7 +23,8 @@ alias gu='gem uninstall'
 
 # Git
 alias gcl='git clone'
-alias gp='git push'
+alias gpl='git pull'
+alias gp='git pull && git push'
 alias gco='git checkout'
 alias gcam='git commit -am'
 alias gr='git reset --hard'
