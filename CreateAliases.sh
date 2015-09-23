@@ -7,6 +7,7 @@
 
 # General commands
 alias c='clear'
+alias crf='cp -rf'
 alias d='pwd'
 alias del='rm -rf'
 alias g='grep -irn'
@@ -14,6 +15,11 @@ alias k='kill'
 alias k9='kill -9'
 alias l='ls -alh'
 alias p='ps -eaf'
+
+# Ruby
+alias r='ruby'
+alias gi='gem install'
+alias gu='gem uninstall'
 
 # Git
 alias gcl='git clone'
@@ -27,26 +33,45 @@ alias g+='git add --all'
 # Hg
 alias hcl='hg clone'
 alias hf='hg fetch'
+alias hcam='hg commit -A -m'
+alias hp='hg fetch && hg push'
 
 # OS dependant aliases
 if [ "$(uname)" == "Darwin" ]
 then
-  alias bi='brew install'
-  alias bif='brew install --force'
-  alias bu='brew uninstall'
-  alias buf='brew uninstall --force'
-  alias br='brew remove'
-  alias brf='brew remove --force'
-  alias bc='brew cleanup'
-  alias bci='brew cask install'
-  alias bcif='brew cask install --force'
-  alias bcu='brew cask uninstall'
-  alias bcuf='brew cask uninstall --force'
-  alias bcr='brew cask remove'
-  alias bcrf='brew cask remove --force'
-  alias bcc='brew cask cleanup'
+  if [ -n "$(brew -v)" ]
+  then
+    alias bi='brew install'
+    alias bif='brew install --force'
+    alias bu='brew uninstall'
+    alias buf='brew uninstall --force'
+    alias br='brew remove'
+    alias brf='brew remove --force'
+    alias bc='brew cleanup'
+  fi
+  if [ -n "$(brew cask -v)" ]
+  then
+    alias bci='brew cask install'
+    alias bcif='brew cask install --force'
+    alias bcu='brew cask uninstall'
+    alias bcuf='brew cask uninstall --force'
+    alias bcr='brew cask remove'
+    alias bcrf='brew cask remove --force'
+    alias bcc='brew cask cleanup'
+  fi
 elif [ "$(uname)" == "Linux" ]
 then
-  echo "Linux! Linux! We've got Linux here!"
+  alias ri='rpm -ivh'
+  alias ru='rpm -e'
+  alias rc='rpm -qpl'
+elif [ "$(uname)" == "*BSD*" ]
+then
+  echo "BSD! BSD! We've got BSD here!"
   echo "See? No one cares."
+elif [ "$(uname)" == "SunOS" ]
+then
+  alias pi='pkginfo'
+  alias pil='pkginfo -l'
+  alias pa='/usr/sbin/pkgadd -G -a admin -d'
+  alias pr='/usr/sbin/pkgrm -n -a admin'
 fi
