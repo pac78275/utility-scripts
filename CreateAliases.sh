@@ -30,6 +30,7 @@ alias gcam='git commit -am'
 alias gr='git reset --hard'
 alias gc='git clean -df'
 alias g+='git add --all'
+alias gs='git status'
 
 # Hg
 alias hcl='hg clone'
@@ -49,9 +50,6 @@ then
     alias br='brew remove'
     alias brf='brew remove --force'
     alias bc='brew cleanup'
-  fi
-  if [ -n "$(brew cask -v)" ]
-  then
     alias bci='brew cask install'
     alias bcif='brew cask install --force'
     alias bcu='brew cask uninstall'
