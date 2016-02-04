@@ -31,6 +31,9 @@ alias gr='git reset --hard'
 alias gc='git clean -df'
 alias g+='git add --all'
 alias gs='git status'
+alias gb='git branch'
+alias gba='git branch --all'
+alias gbr='git branch --remote'
 
 # Hg
 alias hcl='hg clone'
