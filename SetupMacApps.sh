@@ -132,6 +132,7 @@ brew install unzip
 brew install node
 
 # brew cask installing some other apps (to ~/Applications/)'
+brew cask install asepsis
 brew cask install atom
 brew cask install caffeine
 brew cask install ccleaner
@@ -144,6 +145,7 @@ brew cask install intellij-idea
 brew cask install iterm2
 brew cask install java6
 brew cask install java7
+brew cask install java8
 brew cask install java
 brew cask install jenkins
 brew cask install loading
@@ -155,6 +157,7 @@ brew cask install the-unarchiver
 brew cask install virtualbox
 brew cask install vlc
 brew cask install xquartz
+brew cask install xtrafinder
 
 # cleaning up a bit
 brew cleanup
