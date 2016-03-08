@@ -34,6 +34,7 @@ alias gs='git status'
 alias gb='git branch'
 alias gba='git branch --all'
 alias gbr='git branch --remote'
+alias gra='git remote add'
 
 # Hg
 alias hcl='hg clone'
