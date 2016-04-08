@@ -40,6 +40,7 @@ alias gpom='git push origin master'
 alias lfst='git lfs track'
 alias lfsp'git lfs push'
 alias lfspom'git lfs push origin master'
+alias gra='git remote add'
 
 # Hg
 alias hcl='hg clone'
