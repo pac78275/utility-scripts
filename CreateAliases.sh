@@ -13,7 +13,7 @@ alias del='rm -rf'
 alias g='grep -irn'
 alias k='kill'
 alias k9='kill -9'
-alias l='ls -alh'
+alias l='ls -alhG'
 alias p='ps -eaf'
 
 # Ruby
@@ -34,6 +34,12 @@ alias gs='git status'
 alias gb='git branch'
 alias gba='git branch --all'
 alias gbr='git branch --remote'
+alias gpom='git push origin master'
+
+# Git LFS
+alias lfst='git lfs track'
+alias lfsp'git lfs push'
+alias lfspom'git lfs push origin master'
 
 # Hg
 alias hcl='hg clone'
