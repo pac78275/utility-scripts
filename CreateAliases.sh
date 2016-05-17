@@ -13,11 +13,13 @@ alias del='rm -rf'
 alias g='grep -irn'
 alias k='kill'
 alias k9='kill -9'
-alias l='ls -alh'
+alias l='ls -alhG'
 alias p='ps -eaf'
+alias r='reset'
+alias curl='curl -k -O'
 
 # Ruby
-alias r='ruby'
+alias rb='ruby'
 alias gi='gem install'
 alias gu='gem uninstall'
 
@@ -34,6 +36,14 @@ alias gs='git status'
 alias gb='git branch'
 alias gba='git branch --all'
 alias gbr='git branch --remote'
+alias gpom='git push origin master'
+alias gl='git log'
+alias glp="git log --pretty=format:'%C(yellow)%h|%Cred%ad|%Cblue%an|%Cgreen%d %Creset%s' --date=short | column -ts'|'"
+
+# Git LFS
+alias lfst='git lfs track'
+alias lfsp='git lfs push'
+alias lfspom='git lfs push origin master'
 
 # Hg
 alias hcl='hg clone'
