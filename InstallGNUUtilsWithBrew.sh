@@ -2,6 +2,10 @@
 # https://www.topbug.net/blog/2013/04/14/install-and-use-gnu-command-line-tools-in-mac-os-x/
 # All credit given to Hong Xu, ther original author o said article
 
+# developer: Josh Westmoreland
+# date:      2016/05/17
+# email:     pac78275@gmail.com
+
 if [ ! -d /Library/Developer/CommandLineTools ]
 then
   xcode-select --install
