@@ -2,8 +2,19 @@
 # https://www.topbug.net/blog/2013/04/14/install-and-use-gnu-command-line-tools-in-mac-os-x/
 # All credit given to Hong Xu, ther original author o said article
 
+if [ ! -d /Library/Developer/CommandLineTools ]
+then
+  xcode-select --install
+fi
+
 # installing brew just in case it isn't already present
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+# old method installing homebrew globally
+#ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+# new method installing homebrew to user's home dir
+cd ~/
+git clone https://github.com/mxcl/homebrew.git
+echo export PATH=~/homebrew/bin:${PATH} >> ~/.bash_profile
+source ~/.bash_profile
 
 # adding these to use the GNU command line utils instead of their BSD equivalents that come with OS X
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH" >> ~/.bash_profile
