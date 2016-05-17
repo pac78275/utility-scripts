@@ -10,11 +10,16 @@ fi
 # installing brew just in case it isn't already present
 # old method installing homebrew globally
 #ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-# new method installing homebrew to user's home dir
-cd ~/
-git clone https://github.com/mxcl/homebrew.git
-echo export PATH=~/homebrew/bin:${PATH} >> ~/.bash_profile
-source ~/.bash_profile
+# new method installing homebrew to user's home dir if it isn't already there
+if [ "$(which brew)" != "/Users/$(whoami)/homebrew/bin/brew" ]
+then
+  ORIGIN=$(pwd)
+  cd ~/
+  git clone https://github.com/mxcl/homebrew.git
+  echo export PATH=~/homebrew/bin:${PATH} >> ~/.bash_profile
+  source ~/.bash_profile
+  cd $ORIGIN
+fi
 
 # adding these to use the GNU command line utils instead of their BSD equivalents that come with OS X
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH" >> ~/.bash_profile
