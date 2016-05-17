@@ -44,6 +44,7 @@ alias glp="git log --pretty=format:'%C(yellow)%h|%Cred%ad|%Cblue%an|%Cgreen%d %C
 alias lfst='git lfs track'
 alias lfsp='git lfs push'
 alias lfspom='git lfs push origin master'
+alias gra='git remote add'
 
 # Hg
 alias hcl='hg clone'
