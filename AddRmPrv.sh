@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# developer: Josh Westmoreland
+# date:      2016/05/17
+# email:     pac78275@gmail.com
+
 ME=$(whoami)
 ACTION=''
 
