@@ -17,6 +17,7 @@ alias l='ls -alhG'
 alias p='ps -eaf'
 alias r='reset'
 alias curl='curl -k -O'
+alias sbp='source ~/.bash_profile'
 
 # Ruby
 alias rb='ruby'
