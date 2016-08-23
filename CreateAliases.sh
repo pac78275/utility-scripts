@@ -6,23 +6,37 @@
 # description: Alaises for commonly used commands
 
 # General commands
+alias a='alias'
 alias c='clear'
 alias crf='cp -rf'
 alias d='pwd'
 alias del='rm -rf'
-alias g='grep -irn'
+alias girn='grep -irn'
 alias k='kill'
 alias k9='kill -9'
 alias l='ls -alhG'
 alias p='ps -eaf'
 alias r='reset'
-alias curl='curl -k -O'
+alias cko='curl -k -O'
+alias s='sudo'
+alias ssu='sudo su -'
 alias sbp='source ~/.bash_profile'
+alias sbrc='source ~/.bashrc' # the .bash_profile should already be doing this, but still
 
 # Ruby
 alias rb='ruby'
 alias gi='gem install'
+alias gino='gem install --no-ri --no-rdoc'
 alias gu='gem uninstall'
+
+# RVM
+alias ru='rvm use'
+alias rud='rvm --default use'
+alias ri='rvm install'
+alias rl='rvm list'
+alias rgs='rvm get stable --auto' # upgrading rvm
+alias rug='rvm upgrade' # upgrading a ruby from x.x.x to x.x.y
+alias rgc='rvm gemset copy' # copying a gemset from one ruby to another
 
 # Git
 alias gcl='git clone'
@@ -47,7 +61,7 @@ alias lfsp='git lfs push'
 alias lfspom='git lfs push origin master'
 alias gra='git remote add'
 
-# Hg
+# Hg (Mercurial)
 alias hcl='hg clone'
 alias hf='hg fetch'
 alias hcam='hg commit -A -m'
@@ -65,6 +79,8 @@ then
     alias br='brew remove'
     alias brf='brew remove --force'
     alias bc='brew cleanup'
+    alias bu='brew update'
+    alias bg='brew upgrade'
     alias bci='brew cask install'
     alias bcif='brew cask install --force'
     alias bcu='brew cask uninstall'
@@ -78,6 +94,9 @@ then
   alias ri='rpm -ivh'
   alias ru='rpm -e'
   alias rc='rpm -qpl'
+  alias rqi='rpm -qi'
+  alias rqa='rpm -qa'
+  alias rqag='rpm -qa | grep -irn'
 elif [ "$(uname)" == "*BSD*" ]
 then
   echo "BSD! BSD! We've got BSD here!"
@@ -86,6 +105,7 @@ elif [ "$(uname)" == "SunOS" ]
 then
   alias pi='pkginfo'
   alias pil='pkginfo -l'
+  alias pig='pkginfo | grep -irn'
   alias pa='/usr/sbin/pkgadd -G -a admin -d'
   alias pr='/usr/sbin/pkgrm -n -a admin'
 fi
