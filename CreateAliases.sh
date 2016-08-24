@@ -54,6 +54,8 @@ alias gbr='git branch --remote'
 alias gpom='git push origin master'
 alias gl='git log'
 alias glp="git log --pretty=format:'%C(yellow)%h|%Cred%ad|%Cblue%an|%Cgreen%d %Creset%s' --date=short | column -ts'|'"
+alias gd='git diff'
+alias gdh='git diff HEAD'
 
 # Git LFS
 alias lfst='git lfs track'
