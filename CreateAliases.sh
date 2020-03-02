@@ -1,9 +1,11 @@
-#!/bin/sh
+#!/bin/bash
 
-# author:      Josh Westmoreland
-# date:        23/09/2015
-# email:       joshua.westmoreland@me.com
-# description: Alaises for commonly used commands
+# author       : Josh Westmoreland
+# creation date: 23-09-2015
+# email        : joshua.westmoreland@outlook.com
+# description  : Alaises for commonly used commands on multiple platforms
+
+# ================================================== aliases ================================================== #
 
 # General commands
 alias a='alias'
@@ -14,7 +16,7 @@ alias del='rm -rf'
 alias girn='grep -irn'
 alias k='kill'
 alias k9='kill -9'
-alias l='ls -alhG'
+alias l='ls -alhtr'
 alias p='ps -eaf'
 alias r='reset'
 alias cko='curl -k -O'
@@ -22,52 +24,78 @@ alias s='sudo'
 alias ssu='sudo su -'
 alias sbp='source ~/.bash_profile'
 alias sbrc='source ~/.bashrc' # the .bash_profile should already be doing this, but still
+alias fps='ps -eaf | grep -i'
+
+# Chef
+if [ $(which chef) ]
+then
+  alias cg='chef generate'
+  alias cgc='chef generate cookbook'
+  alias cgt='chef generate template'
+  alias cgr='chef generate recipe'
+  alias ccl='chef-client -z -r'
+  alias cs='cookstyle'
+fi
+
+# Inspec
+if [ $(which inspec) ]
+then
+  alias iip='inspec init profile'
+  alias ic='inspec check'
+fi
 
 # Ruby
-alias rb='ruby'
-alias gi='gem install'
-alias gino='gem install --no-ri --no-rdoc'
-alias gu='gem uninstall'
+if [ $(which ruby) ] && [ $(which gem) ]
+then
+  alias rb='ruby'
+  alias gi='gem install'
+  alias gino='gem install --no-ri --no-rdoc'
+  alias gu='gem uninstall'
+fi
 
 # RVM
-alias ru='rvm use'
-alias rud='rvm --default use'
-alias ri='rvm install'
-alias rl='rvm list'
-alias rgs='rvm get stable --auto' # upgrading rvm
-alias rug='rvm upgrade' # upgrading a ruby from x.x.x to x.x.y
-alias rgc='rvm gemset copy' # copying a gemset from one ruby to another
+if [ $(which rvm) ]
+then
+  alias ru='rvm use'
+  alias rud='rvm --default use'
+  alias ri='rvm install'
+  alias rl='rvm list'
+  alias rgs='rvm get stable --auto' # upgrading rvm
+  alias rug='rvm upgrade' # upgrading a ruby from x.x.x to x.x.y
+  alias rgc='rvm gemset copy' # copying a gemset from one ruby to another
+fi
 
 # Git
-alias gcl='git clone'
-alias gpl='git pull'
-alias gp='git pull && git push'
-alias gco='git checkout'
-alias gcam='git commit -am'
-alias gr='git reset --hard'
-alias gc='git clean -df'
-alias g+='git add --all'
-alias gs='git status'
-alias gb='git branch'
-alias gba='git branch --all'
-alias gbr='git branch --remote'
-alias gpom='git push origin master'
-alias gl='git log'
-alias glp="git log --pretty=format:'%C(yellow)%h|%Cred%ad|%Cblue%an|%Cgreen%d %Creset%s' --date=short | column -ts'|'"
-alias gd='git diff'
-alias gdh='git diff HEAD'
-
-# Git LFS
-alias lfst='git lfs track'
-alias lfsp='git lfs push'
-alias lfspom='git lfs push origin master'
-alias gra='git remote add'
-
-# Hg (Mercurial)
-alias hcl='hg clone'
-alias hf='hg fetch'
-alias hcam='hg commit -A -m'
-alias hp='hg fetch && hg push'
+if [ $(which git) ]
+then
+  # plain git
+  alias gcl='git clone'
+  alias gpl='git pull'
+  alias gp='git pull && git push'
+  alias gco='git checkout'
+  alias gcb='git checkout -b'
+  alias gdb='git branch -D'
+  alias gcam='git commit -am'
+  alias gr='git reset --hard'
+  alias gc='git clean -df'
+  alias g+='git add --all'
+  alias gs='git status'
+  alias gb='git branch'
+  alias gba='git branch --all'
+  alias gbr='git branch --remote'
+  alias gpom='git push origin master'
+  alias gpo='git push origin'
+  alias gl='git log'
+  alias glp="git log --pretty=format:'%C(yellow)%h|%Cred%ad|%Cblue%an|%Cgreen%d %Creset%s' --date=short | column -ts'|'"
+  alias gd='git diff'
+  alias gdh='git diff HEAD'
+  alias gsb='git branch; git status'
+  # Git LFS
+  alias lfst='git lfs track'
+  alias lfsp='git lfs push'
+  alias lfspom='git lfs push origin master'
+  alias gra='git remote add'
+fi
 
 # OS dependant aliases
 if [ "$(uname)" == "Darwin" ]
@@ -76,8 +104,8 @@ then
   then
     alias bi='brew install'
     alias bif='brew install --force'
-    alias bu='brew uninstall'
-    alias buf='brew uninstall --force'
+    alias bn='brew uninstall'
+    alias bnf='brew uninstall --force'
     alias br='brew remove'
     alias brf='brew remove --force'
     alias bc='brew cleanup'
@@ -90,15 +118,22 @@ then
     alias bcr='brew cask remove'
     alias bcrf='brew cask remove --force'
     alias bcc='brew cask cleanup'
+    alias bug='brew update; brew upgrade; brew cask upgrade; brew cleanup'
+    alias bo='brew oudated'
+    alias bco='brew cask outdated'
   fi
 elif [ "$(uname)" == "Linux" ]
 then
-  alias ri='rpm -ivh'
-  alias ru='rpm -e'
-  alias rc='rpm -qpl'
-  alias rqi='rpm -qi'
-  alias rqa='rpm -qa'
-  alias rqag='rpm -qa | grep -irn'
+  # red hat family
+  if [[ $(cat /etc/redhat-release | grep -i 'centos') ]] || [[ $(cat /etc/redhat-release | grep -i 'red hat') ]]
+  then
+    alias ri='rpm -ivh'
+    alias ru='rpm -e'
+    alias rc='rpm -qpl'
+    alias rqi='rpm -qi'
+    alias rqa='rpm -qa'
+    alias rqag='rpm -qa | grep -irn'
+  fi
 elif [ "$(uname)" == "*BSD*" ]
 then
   echo "BSD! BSD! We've got BSD here!"
@@ -111,3 +146,29 @@ then
   alias pa='/usr/sbin/pkgadd -G -a admin -d'
   alias pr='/usr/sbin/pkgrm -n -a admin'
 fi
+
+# ================================================= functions ================================================= #
+
+function gnb () {
+  git checkout -b $1
+  git push origin $1
+  git branch --set-upstream-to=origin/$1 $1
+  echo "Branch $1 has been fully created both locally and remotely."
+}
+
+function gdb () {
+  if [ "$1" = "l" ] || [ -z "$1"]
+  then
+    git branch -d $1
+  fi
+  if [ "$1" = "r" ] || [ -z "$1"]
+  then
+    git push origin --delete origin/$1
+  fi
+  echo "Branch $1 has been deleted both locally and remotely."
+}
+
+# brings current branch up to date with base branch
+function gud () {
+  git merge origin/$1
+}
