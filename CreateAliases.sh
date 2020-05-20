@@ -121,7 +121,7 @@ then
     alias bug='brew update; brew upgrade; brew cask upgrade; brew cleanup'
     alias bo='brew oudated'
     alias bco='brew cask outdated'
-    alias fsu-'softwareupdate --all --install --force'
+    alias fsu='softwareupdate --all --install --force'
   fi
 elif [ "$(uname)" == "Linux" ]
 then
