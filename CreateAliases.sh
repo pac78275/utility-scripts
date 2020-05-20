@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # author       : Josh Westmoreland
 # creation date: 23-09-2015
@@ -147,29 +147,3 @@ then
   alias pa='/usr/sbin/pkgadd -G -a admin -d'
   alias pr='/usr/sbin/pkgrm -n -a admin'
 fi
-
-# ================================================= functions ================================================= #
-
-function gnb () {
-  git checkout -b $1
-  git push origin $1
-  git branch --set-upstream-to=origin/$1 $1
-  echo "Branch $1 has been fully created both locally and remotely."
-}
-
-function gdb () {
-  if [ "$1" = "l" ] || [ -z "$1"]
-  then
-    git branch -d $1
-  fi
-  if [ "$1" = "r" ] || [ -z "$1"]
-  then
-    git push origin --delete origin/$1
-  fi
-  echo "Branch $1 has been deleted both locally and remotely."
-}
-
-# brings current branch up to date with base branch
-function gud () {
-  git merge origin/$1
-}
