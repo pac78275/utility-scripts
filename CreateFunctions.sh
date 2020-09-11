@@ -45,3 +45,10 @@ function gcp () {
   git commit -a -m "$1"
   git push
 }
+
+function bug () {
+  brew update
+  brew upgrade
+  brew upgrade --cask
+  brew cleanup
+}

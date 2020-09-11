@@ -119,7 +119,6 @@ then
     alias bcr='brew cask remove'
     alias bcrf='brew cask remove --force'
     alias bcc='brew cask cleanup'
-    alias bug='brew update; brew upgrade; brew cask upgrade; brew cleanup'
     alias bo='brew oudated'
     alias bco='brew cask outdated'
   fi
