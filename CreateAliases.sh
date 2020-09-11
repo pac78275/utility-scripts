@@ -121,8 +121,12 @@ then
     alias bug='brew update; brew upgrade; brew cask upgrade; brew cleanup'
     alias bo='brew oudated'
     alias bco='brew cask outdated'
-    alias fsu='softwareupdate --all --install --force'
   fi
+
+  alias suf='softwareupdate --all --install --force'
+  alias sul='softwareupdate -l'
+  alias sui='softwareupdate -i'
+  alias sua='softwareupdate --all -- install'
 elif [ "$(uname)" == "Linux" ]
 then
   # red hat family
