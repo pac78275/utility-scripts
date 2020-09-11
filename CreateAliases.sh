@@ -25,6 +25,7 @@ alias ssu='sudo su -'
 alias sbp='source ~/.bash_profile'
 alias sbrc='source ~/.bashrc' # the .bash_profile should already be doing this, but still
 alias fps='ps -eaf | grep -i'
+alias n='nano -c'
 
 # Chef
 if [ $(which chef) ]
