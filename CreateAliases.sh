@@ -28,7 +28,7 @@ alias fps='ps -eaf | grep -i'
 alias n='nano -c'
 
 # Chef
-if [ $(which chef) ]
+if [ $(echo $PATH | grep chef) ]
 then
   alias cg='chef generate'
   alias cgc='chef generate cookbook'
@@ -39,14 +39,14 @@ then
 fi
 
 # Inspec
-if [ $(which inspec) ]
+if [ $(echo $PATH | grep inspec) ]
 then
   alias iip='inspec init profile'
   alias ic='inspec check'
 fi
 
 # Ruby
-if [ $(which ruby) ] && [ $(which gem) ]
+if [ $(echo $PATH | grep ruby) ] && [ $(echo $PATH | grep gem) ]
 then
   alias rb='ruby'
   alias gi='gem install'
@@ -55,7 +55,7 @@ then
 fi
 
 # RVM
-if [ $(which rvm) ]
+if [ $(echo $PATH | grep rvm) ]
 then
   alias ru='rvm use'
   alias rud='rvm --default use'
@@ -130,7 +130,7 @@ then
 elif [ "$(uname)" == "Linux" ]
 then
   # red hat family
-  if [[ $(cat /etc/redhat-release | grep -i 'centos') ]] || [[ $(cat /etc/redhat-release | grep -i 'red hat') ]]
+  if [ -f '/etc/redhat-release' ]
   then
     alias ri='rpm -ivh'
     alias ru='rpm -e'
